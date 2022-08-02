@@ -1,5 +1,8 @@
-name: Build and upload artifact
-on: [push]
+name: Build
+on: 
+  push:
+    branches-ignore:
+      - master
 
 jobs:
   build:

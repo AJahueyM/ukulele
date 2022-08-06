@@ -40,7 +40,7 @@ class Replies(
         Pair(ToRegex("chicas? barco|ship ?girls?"), "#TODO"),
         Pair(ToRegex("yuri|lesbiana?s?"), "#TODO"),
         Pair(ToRegex("madok(a|ita)"), "#TODO"),
-        Pair(ToRegex("sad($| +|(de|[ln]))|depress[ia].*"), "#TODO"),
+        Pair(ToRegex("sad($| +|(de|[ln]))|depress[eia].*"), "#TODO"),
         Pair(ToRegex("il+egal"), "#TODO"),
         Pair(ToRegex("goofy"), "#TODO"),
         Pair(ToRegex("metal ?gear ?solid|mgs"), "#TODO")

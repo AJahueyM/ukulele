@@ -36,15 +36,15 @@ jobs:
             file: 'ukulele.yml'
             content: |
               config:
-                token: "${{ github.DISCORD_TOKEN }}"  # Your discord bot token
+                token: "${{ secrets.DISCORD_TOKEN }}"  # Your discord bot token
                 shards: 1 # Number of shards to create. 1 works for most bots
                 prefix: "."  # Prefix to invoke commands with
                 database: "./database" # Database filename
                 game: "Now in the cloud :D" # Status message shown when your bot is online
                 trackDurationLimit: 0 # Maximum limit of track duration in minutes. Set to 0 for unlimited
                 announceTracks: true # Announce the start of a track
-                azureToken: "${{ github.AZURE_VISION_API_TOKEN }}" # Azure token for API calls
-                azureEndpoint: "${{ github.AZURE_VISION_API_ENDPOINT }}" #Azure endpoint for API calls
+                azureToken: "${{ secrets.AZURE_VISION_API_TOKEN }}" # Azure token for API calls
+                azureEndpoint: "${{ secrets.AZURE_VISION_API_ENDPOINT }}" #Azure endpoint for API calls
         
         - uses: actions/download-artifact@v3
           with:

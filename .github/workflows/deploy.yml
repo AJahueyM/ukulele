@@ -27,7 +27,6 @@ jobs:
       runs-on: ubuntu-latest
       environment: Chrisalaxelrto
       steps:
-          steps:
         - name: Add mask
           run: |
             echo "::add-mask::${{ secrets.SUDO_PASS }}" 

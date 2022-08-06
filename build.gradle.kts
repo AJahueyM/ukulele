@@ -29,6 +29,7 @@ dependencies {
     implementation("org.flywaydb:flyway-core")
     implementation("com.github.ben-manes.caffeine:caffeine:2.8.6")
 
+    implementation(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.9-beta")
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -37,6 +38,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
+
 }
 
 tasks.withType<BootJar> {

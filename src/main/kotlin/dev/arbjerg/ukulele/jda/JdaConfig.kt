@@ -24,6 +24,10 @@ class JdaConfig {
         if (botProps.token.isBlank()) throw RuntimeException("Discord token not configured!")
         val activity = if (botProps.game.isBlank()) Activity.playing("music") else Activity.playing(botProps.game)
 
+        val listenerArray = arrayOf(
+            ReplyListener(),
+            ImageListener(botProps)
+        )
 
         val intents = listOf(
                 GUILD_VOICE_STATES,
@@ -38,7 +42,7 @@ class JdaConfig {
                 .setEnableShutdownHook(false)
                 .setAutoReconnect(true)
                 .setShardsTotal(botProps.shards)
-                .addEventListeners(eventHandler)
+                .addEventListeners(eventHandler, *listenerArray)
                 .setActivity(activity)
 
         val shardManager: ShardManager

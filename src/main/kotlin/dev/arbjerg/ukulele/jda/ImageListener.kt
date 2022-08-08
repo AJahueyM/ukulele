@@ -91,31 +91,34 @@ class ImageListener(botProps: BotProps) : ListenerAdapter() {
     }
 
     override fun onGuildMessageReceived(event: GuildMessageReceivedEvent) {
-        val channel = event.channel
-        val member = event.member
-        val message = event.message
 
-        //search if message contains any image embeds
-        val embeds = message.getEmbeds()
-        for(embed in embeds){
-            val site = embed.getSiteProvider()
-            if(site?.getName() == "Tenor"){
-                val url = embed.getUrl()
-                val text = url?.replace("https://tenor.com/view", "")
-                val msg = MessageBuilder().append("wow is that an animated ${text}").setTTS(true).build()
-                channel.sendMessage(msg).queue()
-            }
-            if(embed.getType() == EmbedType.IMAGE){
-                respondImage(embed?.getUrl(), channel, message)
-            }
-        }
+        if (!event.author.isBot) {
+            val channel = event.channel
+            val member = event.member
+            val message = event.message
 
-        //search if message contains any image files
-        val attachments = message.getAttachments()
-        for(attachment in attachments){
-            //log.info("Attachment: ${attachment.getContentType()}")
-            if(attachment.isImage()){
-                respondImage(attachment?.getProxyUrl(), channel, message)
+            //search if message contains any image embeds
+            val embeds = message.getEmbeds()
+            for (embed in embeds) {
+                val site = embed.getSiteProvider()
+                if (site?.getName() == "Tenor") {
+                    val url = embed.getUrl()
+                    val text = url?.replace("https://tenor.com/view", "")
+                    val msg = MessageBuilder().append("wow is that an animated ${text}").setTTS(true).build()
+                    channel.sendMessage(msg).queue()
+                }
+                if (embed.getType() == EmbedType.IMAGE) {
+                    respondImage(embed?.getUrl(), channel, message)
+                }
+            }
+
+            //search if message contains any image files
+            val attachments = message.getAttachments()
+            for (attachment in attachments) {
+                //log.info("Attachment: ${attachment.getContentType()}")
+                if (attachment.isImage()) {
+                    respondImage(attachment?.getProxyUrl(), channel, message)
+                }
             }
         }
     }

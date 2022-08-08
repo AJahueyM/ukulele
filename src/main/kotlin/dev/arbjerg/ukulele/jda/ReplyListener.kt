@@ -18,17 +18,19 @@ class ReplyListener() : ListenerAdapter() {
     private val log: Logger = LoggerFactory.getLogger(EventHandler::class.java)
 
     override fun onGuildMessageReceived(event: GuildMessageReceivedEvent) {
-        val channel = event.channel
-        val member = event.member
-        val message = event.message
+        if (!event.author.isBot) {
+            val channel = event.channel
+            val member = event.member
+            val message = event.message
 
-        for(reply in replies.list){
-            if(reply.first.containsMatchIn(message.contentRaw.toLowerCase())){
-                log.info("Replying ${reply.second} to ${message.contentRaw}")
-                var msg = MessageBuilder().append(reply.second).setTTS(true).build()
-                channel.sendMessage(msg).queue()
+            for(reply in replies.list){
+                if(reply.first.containsMatchIn(message.contentRaw.toLowerCase())){
+                    log.info("Replying ${reply.second} to ${message.contentRaw}")
+                    var msg = MessageBuilder().append(reply.second).setTTS(true).build()
+                    channel.sendMessage(msg).queue()
+                }
             }
-        }
+    }
     }
 
 }

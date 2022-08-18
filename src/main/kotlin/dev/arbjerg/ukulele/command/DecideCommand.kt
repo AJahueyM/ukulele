@@ -26,8 +26,8 @@ class DecideCommand : Command("decide"){
             return
         }
 
-        val selectedOption = options[Random.nextInt(options.size - 1)].trim()
-        val selectedWording = responseWording[Random.nextInt(responseWording.size - 1)]
+        val selectedOption = options[Random.nextInt(options.size)].trim()
+        val selectedWording = responseWording[Random.nextInt(responseWording.size)]
 
         replyTTS(selectedWording.format(selectedOption))
     }

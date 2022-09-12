@@ -14,7 +14,7 @@ import com.microsoft.azure.cognitiveservices.vision.computervision.*
 import dev.arbjerg.ukulele.config.BotProps
 import kotlin.random.Random
 
-
+//TODO Separate Azure image scanning from listener
 @Service
 class ImageListener(botProps: BotProps) : ListenerAdapter() {
 
@@ -103,9 +103,14 @@ class ImageListener(botProps: BotProps) : ListenerAdapter() {
                 val site = embed.getSiteProvider()
                 if (site?.getName() == "Tenor") {
                     val url = embed.getUrl()
-                    val text = url?.replace("https://tenor.com/view", "")
-                    val msg = MessageBuilder().append("wow is that an animated ${text}").setTTS(true).build()
-                    channel.sendMessage(msg).queue()
+                    var text = url?.replace("https://tenor.com/view", "")
+                    if (text != null) {
+                        text = text.replace("-"," ")
+                        val re = Regex("[^A-Za-z ]")
+                        text = re.replace(text, "") // works
+                        val msg = MessageBuilder().append("wow is that an animated $text").setTTS(true).build()
+                        channel.sendMessage(msg).queue()
+                    }
                 }
                 if (embed.getType() == EmbedType.IMAGE) {
                     respondImage(embed?.getUrl(), channel, message)

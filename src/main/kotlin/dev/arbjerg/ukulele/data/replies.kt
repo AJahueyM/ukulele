@@ -27,8 +27,6 @@ class Replies(
         Pair(ToRegex("uwu"),                                            "did someone say uwuᵘʷᵘ oh frick ᵘʷᵘ ᵘʷᵘᵘʷᵘ ᵘʷᵘ ᵘʷᵘ ᵘʷᵘ ᵘʷᵘ ᵘʷᵘ frick sorry guysᵘʷᵘ ᵘʷᵘ ᵘʷᵘ ᵘʷᵘᵘʷᵘ ᵘʷᵘ sorry im dropping ᵘʷᵘ my uwus all over the ᵘʷᵘ place ᵘʷᵘ ᵘʷᵘ ᵘʷᵘ sorry"),
         //Emojis
         Pair(ToRegex(":NiaFlip:"),                                      "Looks like someone's salty over here"),
-        Pair(ToRegex("CatGun"), "Name"),
-        Pair(ToRegex("1024806791357403197"), "ID"),
         //Other
         Pair(ToRegex("chrisalaxel?rto"),                                "Who dares to call upon the great Chrisalaxelrto, ruler of all"),
         Pair(ToRegex("coletas?|twintails?"),                            "What is the sick bastard doing now?"),

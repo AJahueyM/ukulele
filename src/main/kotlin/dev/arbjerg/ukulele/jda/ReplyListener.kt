@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
+import kotlin.random.Random
 
 
 @Service
@@ -23,10 +24,25 @@ class ReplyListener() : ListenerAdapter() {
             val member = event.member
             val message = event.message
 
+            val stickers = message.getStickers()
+
+            if(stickers.isNotEmpty()){
+                log.info("sticker found, id: ${stickers[0].getId()}")
+                for(reply in replies.list) {
+                    if (reply.first.containsMatchIn(stickers[0].getId())) {
+                        val selectedReply = reply.second[Random.nextInt(reply.second.size)].trim()
+                        log.info("Replying $selectedReply to sticker ${stickers[0].getId()} in ${message.contentRaw}")
+                        var msg = MessageBuilder().append(selectedReply).setTTS(true).build()
+                        channel.sendMessage(msg).queue()
+                    }
+                }
+            }
+
             for(reply in replies.list){
                 if(reply.first.containsMatchIn(message.contentRaw.toLowerCase())){
-                    log.info("Replying ${reply.second} to ${message.contentRaw}")
-                    var msg = MessageBuilder().append(reply.second).setTTS(true).build()
+                    val selectedReply = reply.second[Random.nextInt(reply.second.size)].trim()
+                    log.info("Replying $selectedReply to ${message.contentRaw}")
+                    var msg = MessageBuilder().append(selectedReply).setTTS(true).build()
                     channel.sendMessage(msg).queue()
                 }
             }

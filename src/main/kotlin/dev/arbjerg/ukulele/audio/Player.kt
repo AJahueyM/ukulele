@@ -81,7 +81,7 @@ class Player(val beans: Beans, guildProperties: GuildProperties) : AudioEventAda
 
     fun remove(pos : Int){
         if (pos == 0){
-            skip(0..0)
+            player.stopTrack()
         }else{
             if(player.playingTrack == null){
                 queue.removeAt(pos)

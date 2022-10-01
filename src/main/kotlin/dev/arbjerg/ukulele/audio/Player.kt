@@ -142,11 +142,11 @@ class Player(val beans: Beans, guildProperties: GuildProperties) : AudioEventAda
                 val prevPlayingTrack = player.playingTrack.makeClone()
                 val originalTrack = queue.removeAt(originalPos - 1)
                 queue.add(0, originalTrack.makeClone())
-                skip(0..0)
+                player.stopTrack()
                 queue.add(0, prevPlayingTrack)
             }else if (originalPos == 0){
                 val prevPlayingTrack = player.playingTrack.makeClone()
-                skip(0..0)
+                player.stopTrack()
                 queue.add(targetPos - 1, prevPlayingTrack)
             }else{
                 val originalTrack = queue.removeAt(originalPos - 1)

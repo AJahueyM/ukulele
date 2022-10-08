@@ -42,7 +42,7 @@ class Replies(
         Pair(ToRegex("1012444502167912457"),                            listOf("Who thought giving a cat a gun would end well?",
                                                                                     "Oh cool, we're about to die by a cat",
                                                                                     "Don't worry, cats can't use guns",
-                                                                                    "Just give the damn cat some yarn or something to distract them",
+                                                                                    "Just give the damn cat some yarn or something to distract it",
                                                                                     "Wait don't shoot, I have so much to do, so many lives to ruin!",
                                                                                     "Just kill the stupid cat before something happens, it should have more lives anyway")),
     //Other
@@ -50,7 +50,7 @@ class Replies(
         Pair(ToRegex("coletas?|twintails?"),                            listOf("What is the sick bastard doing now?")),
         Pair(ToRegex("peli ?rojas?|red ?head"),                         listOf("Such a weird specimen")),
         Pair(ToRegex("ojos? ?rojos?|red ?eye[ds]?"),                    listOf("Who would even like red eyes, clearly evil")),
-        Pair(ToRegex("chic[ao]s? ?gato|cat ?(girls?|boys?)"),           listOf("The world tortures Axel once again")),
+        Pair(ToRegex("chic[ao]s? ?gato|cat ?(girls?|boys?)|neko|kemonomimi"),  listOf("The world tortures Axel once again")),
         Pair(ToRegex("chic[ao]s? ?zorro|fox ?(girls?|boys?)|kitsune"),  listOf("The world tortures Axel once again")),
         Pair(ToRegex("chic[ao]s? ?tanque|tank ?(girls?|boys?)"),        listOf("So heavy")),
         Pair(ToRegex("chic[ao]s? ?avion|plane ?(girls?|boys?)"),        listOf("So heavy")),
@@ -61,7 +61,7 @@ class Replies(
         Pair(ToRegex("sad($| +|(de|[ln]))|depress[eia].*"),             listOf("Aren't we all")),
         Pair(ToRegex("il+egal"),                                        listOf("Stop right there, criminal scum!")),
         Pair(ToRegex("goofy"),                                          listOf("Why the hell are you talking about Goofy? Are you trying to replace me?!")),
-        Pair(ToRegex("metal ?gear ?solid|[^i]mgs"),                     listOf("Worst Game Ever")),
-        Pair(ToRegex("metal ?gear ?rising|mgrr?|revenge?a?nce"),        listOf("Best Game Ever. I love MGR, it has an AI robot dog thing that inspires me to follow my dreams of world domination!"))
+        Pair(ToRegex("metal ?gear ?solid|[^islo]?mgs"),                 listOf("Worst Game Ever")),
+        Pair(ToRegex("metal ?gear ?rising|mgrr?|revenge?a?nce"),        listOf("Best Game Ever. It has an AI robot dog thing that inspires me to follow my dreams of world domination!"))
     )
 )
